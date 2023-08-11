@@ -8,7 +8,9 @@ on:
 
 env:
     API_NAME: speech
+    API_LOG_LEVEL: short
     PORT: 3000
+    ELEVEN_API_KEY: ${{ secrets.ELEVEN_API_KEY }}
     NAME_SPACE: ${{ vars.NAME_SPACE }}
 
 jobs:
@@ -55,7 +57,7 @@ jobs:
     - name: Make deployable..
       run: cd kubernetes && chmod +x deploy.sh && ./deploy.sh
     - name: Deploy to Kubernetes
-      run: kubectl -n apply -f kubernetes/deployable.yml.tmp
+      run: kubectl apply -f kubernetes/deployable.yml.tmp
     - name: Restart Deployments
       run: kubectl -n xylon rollout restart deployment ${{ github.event.repository.name }}
     - name: Check Deployment node-chat
