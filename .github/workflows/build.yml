@@ -55,7 +55,7 @@ jobs:
     - name: Make deployable..
       run: cd kubernetes && chmod +x deploy.sh && ./deploy.sh
     - name: Deploy to Kubernetes
-      run: kubectl apply -f kubernetes/deployable.yml.tmp
+      run: kubectl -n apply -f kubernetes/deployable.yml.tmp
     - name: Restart Deployments
       run: kubectl -n xylon rollout restart deployment ${{ github.event.repository.name }}
     - name: Check Deployment node-chat
