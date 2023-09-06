@@ -20,7 +20,7 @@ const app = express()
 app.set('api_name', process.env.API_NAME)
 app.set('port', process.env.PORT || 3000)
 app.use(express.json())
-app.use(morgan(process.env.API_LOG_LEVEL))
+app.use(morgan(process.env.API_LOG_LEVEL || 'short'))
 app.use(cors(corsOptions))
 app.use(router)
 
