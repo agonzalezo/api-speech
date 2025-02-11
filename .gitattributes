@@ -1,0 +1,14 @@
+# Forzar saltos de línea LF en todos los sistemas
+## git config --global core.autocrlf true
+* text=auto
+*.sh text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Indicar que ciertos archivos son binarios (Git no debe intentar hacer diffs)
+*.png binary
+*.jpg binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.tgz binary
