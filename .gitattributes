@@ -1,7 +1,15 @@
 # Forzar saltos de línea LF en todos los sistemas
 ## git config --global core.autocrlf true
-* text=auto
+## git config --global core.autocrlf input
+    #   input: Convierte CRLF → LF al hacer commit.
+    #   output: (Solo en Windows) Convierte LF → CRLF al hacer checkout.
+    #   false: No realiza ninguna conversión automática.
+* text=auto eol=lf
 *.sh text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+*.py text eol=lf
+*.md text eol=lf
 *.bat text eol=crlf
 *.ps1 text eol=crlf
 
